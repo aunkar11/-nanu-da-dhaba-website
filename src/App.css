@@ -990,7 +990,7 @@ a {
   .hero {
     display: block;
     position: relative;
-    height: 500svh;
+    height: 800svh;
     min-height: 0;
     overflow: visible;
     background: #19100e;
