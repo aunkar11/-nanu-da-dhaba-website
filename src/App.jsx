@@ -493,6 +493,7 @@ function App() {
 useEffect(() => {
   const hero = heroRef.current;
   if (!hero) return;
+  let maxProgress = 0;
 
   const updateHeroPan = () => {
     const rect = hero.getBoundingClientRect();
@@ -503,7 +504,8 @@ useEffect(() => {
       Math.min(1, -rect.top / scrollRange)
     );
 
-    hero.style.setProperty("--hero-pan", `${progress * 100}%`);
+   maxProgress = Math.max(maxProgress, progress);
+hero.style.setProperty("--hero-pan", `${maxProgress * 100}%`);
   };
 
   window.addEventListener("scroll", updateHeroPan, { passive: true });
